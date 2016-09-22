@@ -31,7 +31,7 @@ EPersona AgregarPersona (EPersona lista[]);
  * @param dni el dni a ser buscado en el array.
  * @return el indice en donde se encuentra el elemento que coincide con el parametro dni
  */
-int buscarPorDni(EPersona lista[], int dni);
+int buscarPorDni(EPersona lista[]);
 
 /**
  * Ordena la lista por nombre y la muestra

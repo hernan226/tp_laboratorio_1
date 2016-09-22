@@ -10,11 +10,7 @@ int obtenerEspacioLibre(EPersona lista[])
     for (i=0;i<CANT;i++)
        {
         if (lista[i].estado==0)
-            {
-            printf("espacio libre en la posicion %d!\n",i+1);
-
             return i;
-            }
         if (lista[i].estado==1&&i==CANT-1)
             return -1;
         }
@@ -43,7 +39,7 @@ int validarIgualdad (EPersona lista,EPersona listaGeneral[])
 EPersona AgregarPersona (EPersona listaGeneral[])
     {
     EPersona lista;
-    char numero_c[8],nombre_c[CANT];
+    char numero_c[9],nombre_c[CANT];
     int comprobar,i;
 
 
@@ -125,17 +121,26 @@ int validarNombre (char palabra[])
 
     }
 
-int buscarPorDni(EPersona lista[], int dni)
+int buscarPorDni(EPersona lista[])
 {
-    int i;
+
+    int i,cargarDni;
+    char validarDni[9];
+
+    printf("I");
+        do{
+        printf("ngrese el dni de la persona a borrar: ");
+        fflush(stdin);
+        cargarDni=validarNumero(gets(validarDni));
+        }while(cargarDni==0);
     for (i=0;i<CANT;i++)
     {
-        if (dni==lista[i].dni)
+        if (cargarDni==lista[i].dni)
             {
             printf("\nENCONTRO\n");
             return i;
             }
-        if  (dni!=lista[i].dni&&i==CANT-1)
+        if  (cargarDni!=lista[i].dni&&i==CANT-1)
             {
             printf("\nNO ENCONTRO\n");
             system("pause");
@@ -163,11 +168,11 @@ void ordenamientoFunc (EPersona lista[])
         }
 
     }
-    printf("Nombre\t\tEdad\tDni\n");
+    printf("Nombre\t\t\tEdad\tDni\n----------------------------\n");
     for (i=0;i<CANT;i++)
     {
         if(lista[i].estado==1)
-        printf("%s\t%d\t%d\n",lista[i].nombre,lista[i].edad,lista[i].dni);
+        printf("%s\t\t%d\t%u\t\n",lista[i].nombre,lista[i].edad,lista[i].dni);
     }
 
 }

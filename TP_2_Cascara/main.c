@@ -6,9 +6,9 @@
 
 int main()
 {
-    char seguir='s',validarDni[8];
+    char opcion,seguir='s';
     EPersona lista[CANT];
-    int opcion=0,i,ubicacion,cargarDni;
+    int i,ubicacion;
 
 
     for (i=0;i<CANT;i++)
@@ -17,44 +17,40 @@ int main()
 
     while(seguir=='s')
         {
+
         printf("\n1- Agregar persona\n");
         printf("2- Borrar persona\n");
         printf("3- Imprimir lista ordenada por  nombre\n");
         printf("4- Imprimir grafico de edades\n\n");
         printf("5- Salir\n");
 
-        scanf("%d",&opcion);
-
+        fflush(stdin);
+        scanf("%c",&opcion);
         switch(opcion)
             {
-            case 1:
-
+            case '1':
                 ubicacion=obtenerEspacioLibre(lista);
                 if (ubicacion!=-1)
                 lista[ubicacion]=AgregarPersona(lista);
                 else
-                    printf("\nERROR!!!!! No hay espacios disponibles para guardar otra persona.\n");
+                    printf("\nERROR!!!!!. No hay espacios disponibles para guardar otra persona.\n");
 
                 break;
-            case 2:
-                printf("I");
-                do{
-                printf("ngrese el dni de la persona a borrar: ");
-                fflush(stdin);
-                cargarDni=validarNumero(gets(validarDni));
-                }while(cargarDni==0);
-                ubicacion=buscarPorDni(lista,cargarDni);
+            case '2':
+                ubicacion=buscarPorDni(lista);
                 lista[ubicacion]=borrarPersona(lista[ubicacion],ubicacion);
                 break;
-            case 3:
+            case '3':
                 ordenamientoFunc (lista);
                 break;
-            case 4:
+            case '4':
                 graficoEdades (lista);
                 break;
-            case 5:
+            case '5':
                 seguir = 'n';
                 break;
+            default:
+                printf("ERROR!!!!!. Ingrese un numero entre 1 y 5\n\n");
             }
 
         }
