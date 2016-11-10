@@ -2,24 +2,31 @@
 #include <stdlib.h>
 #include "funciones.h"
 
-/**
-    no puedo realizar este trabajo practico
-    porque aun no llegamos a ver archivos
-    en clase
-**/
-
+/// http://www.leelibros.com/biblioteca/files/Rambo_3.jpg
+/// http://hoycinema.abc.es/archivos/201201/the-terminator-1984.jpg
+/// http://www.linternainformativa.com.mx/wp-content/uploads/2015/09/Back-To-The-Future.jpg
 
 int main()
 {
+    int validar_add;
     char seguir='s',opcion;
+    char nombre_archivo[40];
+    char extension[]=".html";
+    EMovie *P_ePelicula,ePelicula;
+
+    P_ePelicula=&ePelicula;
+
+
 
 
     while(seguir=='s')
+
     {
         printf("1- Agregar pelicula\n");
         printf("2- Borrar pelicula\n");
-        printf("3- Generar pagina web\n");
-        printf("4- Salir\n");
+        printf("3- Editar pelicula\n");
+        printf("4- Generar pagina web\n");
+        printf("5- Salir\n");
 
         fflush(stdin);
         scanf("%c",&opcion);
@@ -27,18 +34,28 @@ int main()
         switch(opcion)
         {
             case '1':
+                Mk_Str_Movie(P_ePelicula);
+                validar_add=agregarPelicula(ePelicula);
                 break;
             case '2':
                 break;
             case '3':
                break;
             case '4':
+                printf("ingrese el nombre del archivo .html que desea crear: \n");
+                    fflush(stdin);
+                    scanf("%s",&nombre_archivo);
+                    strcat(nombre_archivo,extension);
+                    generarPagina(nombre_archivo);
+               break;
+            case '5':
                 seguir = 'n';
                 break;
             default:
                 printf("ERROR!!!. ingrese una de las opciones correctas\n");
         }
     }
+
 
     return 0;
 }
