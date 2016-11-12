@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1478914466 source:c:\users\herna\desktop\tp_4_cascara\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Employee.h"
+
+1463604778 c:\users\herna\desktop\tp_4_cascara\employee.h
+
+1478914651 source:c:\users\herna\desktop\tp_4_cascara\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"Employee.h"
+
+1478913473 c:\users\herna\desktop\tp_4_cascara\arraylist.h
+
+1478916364 source:c:\users\herna\desktop\tp_4_cascara\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"Employee.h"
+
